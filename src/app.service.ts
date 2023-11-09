@@ -12,10 +12,6 @@ export class AppService {
     private readonly userRepository: Repository<User>,
   ) {}
 
-  getHello(): string {
-    return 'Hello World!';
-  }
-
   async getAllUsers(): Promise<UserDTO[]> {
     return await this.userRepository.find();
   }
@@ -23,3 +19,4 @@ export class AppService {
   async createUser(data: UserDTO): Promise<any> {
     return this.userRepository.save(data);
   }
+}

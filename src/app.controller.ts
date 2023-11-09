@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 import { MessagePattern } from '@nestjs/microservices';
 import { UserDTO } from './User/dto/user.dto';
@@ -7,16 +7,16 @@ import { UserDTO } from './User/dto/user.dto';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @MessagePattern({ cmd: 'GetAllUsers' })
+  @MessagePattern({ cmd: 'getAllUsers' })
   async GetAllUsers(): Promise<UserDTO[]> {
     console.log('getAllUsers message received');
-    return this.appService.GetAllUsers();
+    return this.appService.getAllUsers();
   }
 
-  @MessagePattern({ cmd: 'Create User' })
+  @MessagePattern({ cmd: 'createUser' })
   async createBlog(@Body() data: UserDTO): Promise<UserDTO> {
     console.log(data);
     console.log('create User message received');
-    return this.appService.CreateUser(data);
+    return this.appService.createUser(data);
   }
 }

@@ -15,5 +15,5 @@ export class User {
     password: string;
 
     @Column()
-    role: Enumerator;
+    role: string;
 }
