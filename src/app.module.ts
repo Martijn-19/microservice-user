@@ -14,10 +14,10 @@ import { AppService } from './app.service';
       password: process.env.POSTGRES_PASSWORD || 'root',
       database: process.env.POSTGRES_DB_NAME || 'test',
       entities: [User],
-      synchronize: true, // This should be used with caution in production
+      synchronize: true, 
       autoLoadEntities: true,
     }),
-    TypeOrmModule.forFeature([User]), // Register your repository here
+    TypeOrmModule.forFeature([User]), 
   ],
   controllers: [AppController],
   providers: [AppService],
